@@ -19,6 +19,14 @@ import javafx.scene.control.TextField;
 
 public class Q4 extends Application {
 
+	
+	/*****************************************************************************************
+	* 
+	* 						Name: Ramzi Haddad
+	* 						StudentId: 100664575
+	* 
+	*****************************************************************************************/
+	
 	// set values for the histogram
 	public double[] histovalues = new double[26];
 
@@ -27,8 +35,7 @@ public class Q4 extends Application {
 		primaryStage.setTitle("Histogram");
 
 		// list of characters
-		char[] characters = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-				'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+		char[] characters = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
 				's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
 		// this method will reset the values in histogram for zeros
 		resetvalues();
@@ -40,7 +47,7 @@ public class Q4 extends Application {
 		NumberAxis yAxis = new NumberAxis();
 		yAxis.setLabel("Series2");
 
-		//creates series one for the bar.
+		// creates series one for the bar.
 		XYChart.Series dataSeries1 = new XYChart.Series();
 		dataSeries1.setName("Histogram");
 		XYChart.Series dataSeries2 = new XYChart.Series();
@@ -56,6 +63,9 @@ public class Q4 extends Application {
 		UpdateData.setOnAction(e -> {
 			ChangeValues(filenameField.getText());
 			resetvalues();
+			// this method will populate the histogram with data,
+			// it takes series one which is the characters
+			// set and the values from histogram array, and the filename string
 			fillData(characters, dataSeries1, filenameField);
 		});
 		// this function will create and Data in Histogoram values
@@ -94,6 +104,9 @@ public class Q4 extends Application {
 		}
 	}
 
+	// this method will populate the histogram with data,
+	// it takes series one which is the characters
+	// set and the values from histogram array, and the filename string
 	private void fillData(char[] characters, XYChart.Series dataSeries1, TextField filenameField) {
 		// gets the filename and calls in the adjusting method
 		String filename = filenameField.getText();
@@ -119,7 +132,7 @@ public class Q4 extends Application {
 	 */
 	public void ChangeValues(String Text) {
 
-		// switch statement to assign data   histovalue[0]=a histovalue[25]=z
+		// switch statement to assign data histovalue[0]=a histovalue[25]=z
 		// then it will update the value accordingly
 		for (int x = 0; x < Text.length(); x++) {
 			switch (Text.charAt(x)) {
